@@ -12,6 +12,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@Entity
+@DiscriminatorValue("CLIENT")  // El nombre de la tabla
 public class Client extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,8 +21,10 @@ public class Client extends User implements Serializable {
 	public static final int MIN_FULL_NAME = 3;
 	public static final int MAX_FULL_NAME = 100;
 
+	@Column(name = "full_name" , length = MAX_FULL_NAME)  // Mapea el atributo 'fullName' a la columna 'full_name' en la base de datos
 	protected String fullName;
 
+    @Column(name = "phone")  // Mapea el atributo 'phone' a la columna 'phone' en la base de datos
 	protected Integer phone;
 	
 	@Override

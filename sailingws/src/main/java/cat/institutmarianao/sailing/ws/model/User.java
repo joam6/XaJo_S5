@@ -15,6 +15,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Usamos una sola tabla para todas las subclases
+@DiscriminatorColumn(name = "role", discriminatorType = DiscriminatorType.STRING) // Columna para distinguir los tipos de usuario
+@Table(name = "users") // El nombre de la tabla
 public abstract class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,10 +36,13 @@ public abstract class User implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Column(name = username, nullable = false, length = MAX_USERNAME)
 	protected String username;
 
+	@Column(name = "password", nullable = false, length = MIN_PASSWORD)
 	protected String password;
-
+	
+	@Column(name = "role", nullable = false)
 	protected Role role;
 	
 	public abstract String getInfo(); 

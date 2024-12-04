@@ -38,7 +38,8 @@ public abstract class Action implements Serializable {
 	/* Lombok */
 	@NonNull
 	protected Type type;
-
+	
+	@NonNull(message = "No puede ser null")
 	protected User performer;
 
 	protected Date date = new Date();

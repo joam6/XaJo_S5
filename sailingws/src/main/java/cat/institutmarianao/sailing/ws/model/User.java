@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Table(name = "users")
 public abstract class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,10 +34,13 @@ public abstract class User implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Column(name = username)
 	protected String username;
 
+	@Column(name = "password")
 	protected String password;
-
+	
+	@Column(name = "role")
 	protected Role role;
 	
 	public abstract String getInfo(); 

@@ -42,7 +42,7 @@ public class Trip implements Serializable {
 	@Column(name = "id", nullable = false)
 	private Long id;
 
-	@Column(name = "client_username", nullable = false)
+	@Column(name = "client_username", nullable = false, length = 255)
 	private Client client;
 
 	@Column(name = "places", nullable = false)

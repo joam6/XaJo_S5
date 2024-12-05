@@ -18,14 +18,16 @@ import lombok.experimental.SuperBuilder;
 /* Lombok */
 @Data
 @NoArgsConstructor
+@Entity
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "trip")
 public class Trip implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	public static final int MAX_DESCRIPTION = 500;
-
+	
 	public static final String RESERVED = "RESERVED";
 	public static final String RESCHEDULED = "RESCHEDULED";
 	public static final String CANCELLED = "CANCELLED";
@@ -37,12 +39,16 @@ public class Trip implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Column(name = "id", nullable = false)
 	private Long id;
 
+	@Column(name = "client_username", nullable = false)
 	private Client client;
 
+	@Column(name = "places", nullable = false)
 	private int places;
 
+	@Column(name = "departure_id", nullable = false)
 	private Departure departure;
 	
 	/* Lombok */

@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Table(name = "trip_types") // El nombre de la tabla
 public class TripType implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,19 +27,28 @@ public class TripType implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Column(name = "id", nullable = false)
 	private Long id;
-
+	
+	@Column(name = "title", nullable = false)
 	private String title;
 
+    @Enumerated(EnumType.STRING)  // Esto asegura que el enum se guarda como un String en la base de datos
+	@Column(name = "category", nullable = false)
 	private Category category;
-
+    
+	@Column(name = "description")
 	private String description;
 
+    @Column(name = "price", nullable = false)
 	private double price;
 
+    @Column(name = "departures")
 	private String departures;	// Comma-separated values: 9:30;11:30;13:30
  
+    @Column(name = "duration", nullable = false)
 	private int duration;
 
+    @Column(name = "max_places")
 	private int maxPlaces;
 }

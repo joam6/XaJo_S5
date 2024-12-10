@@ -20,6 +20,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Entity
 @SuperBuilder
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "trip")
 public class Trip implements Serializable {

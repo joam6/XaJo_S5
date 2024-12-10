@@ -27,28 +27,28 @@ public class TripType implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
-	@Column(name = "id", nullable = false)
+	@Column(name = "id", nullable = false, length = 20)
 	private Long id;
 	
-	@Column(name = "title", nullable = false)
+	@Column(name = "title", nullable = false, length = 255)
 	private String title;
 
     @Enumerated(EnumType.STRING)  // Esto asegura que el enum se guarda como un String en la base de datos
 	@Column(name = "category", nullable = false)
 	private Category category;
     
-	@Column(name = "description")
+	@Column(name = "description", nullable = false, length = 255)
 	private String description;
 
     @Column(name = "price", nullable = false)
 	private double price;
 
-    @Column(name = "departures")
+    @Column(name = "departures", nullable = true, length = 255)
 	private String departures;	// Comma-separated values: 9:30;11:30;13:30
  
-    @Column(name = "duration", nullable = false)
+    @Column(name = "duration", nullable = false, length = 11)
 	private int duration;
 
-    @Column(name = "max_places")
+    @Column(name = "max_places", nullable = true, length = 11)
 	private int maxPlaces;
 }

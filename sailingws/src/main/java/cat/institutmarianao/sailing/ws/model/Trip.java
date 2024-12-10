@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "trip")
+@Table(name = "trips")
 public class Trip implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -40,16 +40,16 @@ public class Trip implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
-	@Column(name = "id", nullable = false)
+	@Column(name = "id", nullable = false, length = 20)
 	private Long id;
 
 	@Column(name = "client_username", nullable = false, length = 255)
 	private Client client;
 
-	@Column(name = "places", nullable = false)
+	@Column(name = "places", nullable = false, length = 11)
 	private int places;
 
-	@Column(name = "departure_id", nullable = false)
+	@Column(name = "departure_id", nullable = false, length = 20)
 	private Departure departure;
 	
 	/* Lombok */

@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "actions")
 public abstract class Action implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,6 +38,7 @@ public abstract class Action implements Serializable {
 
 	/* Lombok */
 	@NonNull
+	@Column(name = "type", nullable = false, length = 31)
 	protected Type type;
 	
 	@NonNull(message = "No puede ser null")
@@ -45,7 +47,8 @@ public abstract class Action implements Serializable {
 	protected Date date = new Date();
 
 	protected Trip trip;
-
+	
+	@Column(name = "trip_id", nullable = false, length = 20)
 	protected Long idTrip;
 	
 	public String getInfo() {

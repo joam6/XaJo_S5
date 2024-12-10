@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "departures")
 public class Departure implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,10 +26,12 @@ public class Departure implements Serializable {
 	
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Column (name = "id", nullable = false)
 	protected Long id;
 	
 	private TripType tripType;
 	
+	@Column (name  = "date" , nullable = false)
 	private Date date;
 
 	private Date departure;

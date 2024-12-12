@@ -13,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 public class Cancellation extends Action {
 	private static final long serialVersionUID = 1L;
 
+	@Column(name="reason", nullable=true)
 	private String reason;
 	
 	@Override

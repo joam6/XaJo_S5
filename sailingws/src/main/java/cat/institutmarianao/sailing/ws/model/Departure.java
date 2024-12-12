@@ -31,7 +31,8 @@ public class Departure implements Serializable {
 	@Column (name = "id", nullable = false, length = 20)
 	protected Long id;
 	
-	@Column (name = "trip_type_id", nullable = false, length=20)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "trip_type_id", nullable = false, length=20)
 	private TripType tripType;
 	
 	@Column (name  = "date" , nullable = false)

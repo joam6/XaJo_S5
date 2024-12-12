@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@Entity
 @DiscriminatorValue("Booking")
 public class Booking extends Action {
 	private static final long serialVersionUID = 1L;

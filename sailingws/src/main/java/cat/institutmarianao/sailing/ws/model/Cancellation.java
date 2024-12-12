@@ -10,9 +10,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@Entity
+@DiscriminatorValue("Cancellation")
 public class Cancellation extends Action {
 	private static final long serialVersionUID = 1L;
-
+	
+	@Column(name = "reason", length = 255, nullable = true)
 	private String reason;
 	
 	@Override

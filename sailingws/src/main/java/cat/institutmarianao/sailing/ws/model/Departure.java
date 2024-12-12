@@ -26,6 +26,8 @@ public class Departure implements Serializable {
 	
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "id", nullable = false, length = 20)
 	protected Long id;
 	

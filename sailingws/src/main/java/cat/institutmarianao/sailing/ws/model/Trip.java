@@ -40,15 +40,19 @@ public class Trip implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, length = 20)
 	private Long id;
 
+	@ManyToOne(fetch = FetchType.LAZY)
 	@Column(name = "client_username", nullable = false, length = 255)
 	private Client client;
 
 	@Column(name = "places", nullable = false, length = 11)
 	private int places;
 
+	@ManyToOne(fetch = FetchType.LAZY)
 	@Column(name = "departure_id", nullable = false, length = 20)
 	private Departure departure;
 	

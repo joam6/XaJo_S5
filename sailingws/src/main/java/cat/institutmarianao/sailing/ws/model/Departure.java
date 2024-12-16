@@ -3,6 +3,10 @@ package cat.institutmarianao.sailing.ws.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 import org.hibernate.annotations.Formula;
 
 import lombok.AccessLevel;
@@ -28,13 +32,16 @@ public class Departure implements Serializable {
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Positive
 	@Column (name = "id", nullable = false, length = 20)
 	protected Long id;
 	
     @ManyToOne(fetch = FetchType.LAZY)
+    @NotNull
     @JoinColumn (name = "trip_type_id", nullable = false, length=20)
 	private TripType tripType;
 	
+    @NotNull
 	@Column (name  = "date" , nullable = false)
 	private Date date;
 

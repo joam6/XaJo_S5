@@ -3,6 +3,10 @@ package cat.institutmarianao.sailing.ws.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
+import cat.institutmarianao.sailing.ws.validation.groups.OnActionUpdate;
+
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

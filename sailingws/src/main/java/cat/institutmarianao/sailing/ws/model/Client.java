@@ -14,9 +14,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import cat.institutmarianao.sailing.ws.validation.groups.OnUserCreate;
-import cat.institutmarianao.sailing.ws.validation.groups.OnUserUpdate;
-
 /* Lombok */
 @Data
 @NoArgsConstructor

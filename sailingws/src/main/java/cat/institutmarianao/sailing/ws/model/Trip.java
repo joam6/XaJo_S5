@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.Formula;
 
-package cat.institutmarianao.sailing.ws.validation.groups.OnTripCreate;
-package cat.institutmarianao.sailing.ws.validation.groups.OnTripUpdate;
+import cat.institutmarianao.sailing.ws.validation.groups.OnTripCreate;
+import cat.institutmarianao.sailing.ws.validation.groups.OnTripUpdate;
 
 
 import jakarta.persistence.EnumType;

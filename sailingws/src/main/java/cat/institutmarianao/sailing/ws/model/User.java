@@ -2,6 +2,12 @@ package cat.institutmarianao.sailing.ws.model;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import cat.institutmarianao.sailing.ws.validation.groups.OnUserCreate;
+import cat.institutmarianao.sailing.ws.validation.groups.OnUserUpdate;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,12 +42,17 @@ public abstract class User implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@NotNull
+	@Size(min = MIN_USERNAME, max = MAX_USERNAME)
 	@Column(name = "username", nullable = false, length = MAX_USERNAME)
 	protected String username;
 
+	@NotNull
+	@Size(min = MIN_PASSWORD)
 	@Column(name = "password", nullable = false, length = MIN_PASSWORD)
 	protected String password;
 	
+	@NotNull
 	@Column(name = "role", nullable = false, length = 31)
 	protected Role role;
 	

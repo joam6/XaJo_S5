@@ -36,25 +36,33 @@ public class TripType implements Serializable {
 	@Column(name = "id", nullable = false, length = 20)
 	private Long id;
 	
+	@NotBlank
 	@Column(name = "title", nullable = false, length = 255)
 	private String title;
 
+	@NotNull
     @Enumerated(EnumType.STRING)  // Esto asegura que el enum se guarda como un String en la base de datos
 	@Column(name = "category", nullable = false)
 	private Category category;
     
+	@NotBlank
 	@Column(name = "description", nullable = false, length = 255)
 	private String description;
 
+	@NotNull
     @Column(name = "price", nullable = false)
 	private double price;
 
+	@Null
     @Column(name = "departures", nullable = true, length = 255)
 	private String departures;	// Comma-separated values: 9:30;11:30;13:30
  
+	@NotNull
+	@Positive
     @Column(name = "duration", nullable = false, length = 11)
 	private int duration;
 
+	@Null
     @Column(name = "max_places", nullable = true, length = 11)
 	private int maxPlaces;
 }

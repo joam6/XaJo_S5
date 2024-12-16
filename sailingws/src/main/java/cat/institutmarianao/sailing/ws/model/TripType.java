@@ -5,7 +5,6 @@ import java.io.Serializable;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripTypeCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripTypeUpdate;
 
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -53,7 +52,6 @@ public class TripType implements Serializable {
     @Column(name = "price", nullable = false)
 	private double price;
 
-	@Null
     @Column(name = "departures", nullable = true, length = 255)
 	private String departures;	// Comma-separated values: 9:30;11:30;13:30
  
@@ -62,7 +60,6 @@ public class TripType implements Serializable {
     @Column(name = "duration", nullable = false, length = 11)
 	private int duration;
 
-	@Null
     @Column(name = "max_places", nullable = true, length = 11)
 	private int maxPlaces;
 }

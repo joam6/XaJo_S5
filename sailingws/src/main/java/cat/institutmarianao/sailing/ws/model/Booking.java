@@ -1,9 +1,13 @@
 package cat.institutmarianao.sailing.ws.model;
 
 import lombok.Data;
+
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
+import cat.institutmarianao.sailing.ws.validation.groups.OnActionUpdate;
 
 /* Lombok */
 @Data

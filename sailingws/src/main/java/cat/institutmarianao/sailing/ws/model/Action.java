@@ -6,7 +6,6 @@ import java.util.Date;
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionUpdate;
 
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -41,28 +40,33 @@ public abstract class Action implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
 	protected Long id;
 
 	/* Lombok */
-	@NonNull
+	@NotNull
+    @Enumerated(EnumType.STRING)
 	@Column(name = "type", nullable = false, length = 31)
 	protected Type type;
 	
-	@NonNull(message = "No puede ser null")
+	@NotNull
     @ManyToOne
-    @JoinColumn(name = "performer_id", nullable = false)
+    @JoinColumn(name = "performer_username", nullable = false)
 	protected User performer;
 
+	@NotNull
 	@Column(name = "date", nullable = false)
 	protected Date date = new Date();
 
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "trip_id", nullable = false)
 	protected Trip trip;
 	
+	@NotNull
 	@Column(name = "trip_id", nullable = false, length = 20)
 	protected Long idTrip;
 	

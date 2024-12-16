@@ -50,17 +50,17 @@ public class Trip implements Serializable {
 	@Column(name = "id", nullable = false, length = 20)
 	private Long id;
 
-	@NonNull
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@Column(name = "client_username", nullable = false, length = 255)
 	private Client client;
 
-	@NonNull
+	@NotNull
 	@Column(name = "places", nullable = false, length = 11)
 	private int places;
 
 	
-	@NonNull
+	@NotNull
 	@Positive
 	@ManyToOne(fetch = FetchType.LAZY)
 	@Column(name = "departure_id", nullable = false, length = 20)

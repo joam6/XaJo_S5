@@ -8,6 +8,10 @@ import org.hibernate.annotations.Formula;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripUpdate;
 
+import jakarta.persistence.Entity;   
+import jakarta.persistence.Inheritance; 
+import jakarta.persistence.InheritanceType; 
+import jakarta.persistence.Table; 
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

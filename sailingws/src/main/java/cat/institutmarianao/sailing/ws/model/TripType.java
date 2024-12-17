@@ -6,6 +6,11 @@ import cat.institutmarianao.sailing.ws.validation.groups.OnTripTypeCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripTypeUpdate;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance; 
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

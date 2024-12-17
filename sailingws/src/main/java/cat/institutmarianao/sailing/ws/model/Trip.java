@@ -48,7 +48,6 @@ public class Trip implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
-	@Positive
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, length = 20)

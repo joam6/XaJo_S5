@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import cat.institutmarianao.sailing.ws.validation.groups.OnUserCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnUserUpdate;
-
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

@@ -2,13 +2,20 @@ package cat.institutmarianao.sailing.ws.model;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
 
 import cat.institutmarianao.sailing.ws.validation.groups.OnUserCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnUserUpdate;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

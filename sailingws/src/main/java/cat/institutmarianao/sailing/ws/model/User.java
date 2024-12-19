@@ -62,7 +62,7 @@ public abstract class User implements Serializable {
 	protected String password;
 	
 	@NotNull
-	@Column(name = "role", nullable = false, length = 31)
+	@Column(name = "role", nullable = false,insertable=false, updatable=false)
 	protected Role role;
 	
 	public abstract String getInfo(); 

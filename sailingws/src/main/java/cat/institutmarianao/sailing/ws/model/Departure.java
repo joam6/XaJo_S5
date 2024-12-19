@@ -3,12 +3,20 @@ package cat.institutmarianao.sailing.ws.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+
 
 import org.hibernate.annotations.Formula;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -38,7 +46,7 @@ public class Departure implements Serializable {
 	
     @ManyToOne(fetch = FetchType.LAZY)
     @NotNull
-    @JoinColumn (name = "trip_type_id", nullable = false, length=20)
+    @JoinColumn (name = "trip_type_id", nullable = false)
 	private TripType tripType;
 	
     @NotNull

@@ -16,6 +16,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -49,9 +50,10 @@ public abstract class User implements Serializable {
 
 	/* Lombok */
 	@EqualsAndHashCode.Include
+	@Id
 	@NotNull
 	@Size(min = MIN_USERNAME, max = MAX_USERNAME)
-	@Column(name = "username", nullable = false, length = MAX_USERNAME)
+	@Column(name = "username", nullable = false, length = MAX_USERNAME, unique=true)
 	protected String username;
 
 	@NotNull

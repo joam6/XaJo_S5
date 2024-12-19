@@ -11,6 +11,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;   
 import jakarta.persistence.Inheritance; 
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -62,7 +63,7 @@ public class Trip implements Serializable {
 
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "client_username", nullable = false, length = 255)
+	@JoinColumn(name = "client_username", nullable = false)
 	private Client client;
 
 	@NotNull
@@ -73,7 +74,7 @@ public class Trip implements Serializable {
 	@NotNull
 	@Positive
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "departure_id", nullable = false, length = 20)
+	@JoinColumn(name = "departure_id", nullable = false)
 	private Departure departure;
 	
 	/* Lombok */

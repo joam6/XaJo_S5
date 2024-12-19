@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Entity;   
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
@@ -29,6 +30,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
 @Table(name = "departures")
 public class Departure implements Serializable {
 
@@ -41,7 +43,7 @@ public class Departure implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Positive
-	@Column (name = "id", nullable = false, length = 20)
+	@Column (name = "id", nullable = false)
 	protected Long id;
 	
     @ManyToOne(fetch = FetchType.LAZY)

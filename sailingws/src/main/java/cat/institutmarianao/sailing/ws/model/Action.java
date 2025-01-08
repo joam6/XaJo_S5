@@ -62,7 +62,7 @@ public abstract class Action implements Serializable {
 	/* Lombok */
 	@NotNull
     @Enumerated(EnumType.STRING)
-	@Column(name = "type", nullable = false, length = 31)
+	@Column(name = "type", nullable = false, length = 31,insertable=false, updatable=false)
 	protected Type type;
 	
 	@NotNull
@@ -80,7 +80,7 @@ public abstract class Action implements Serializable {
 	protected Trip trip;
 	
 	@NotNull
-	@Column(name = "trip_id", nullable = false, length = 20)
+	@Column(name = "trip_id", nullable = false, length = 20,insertable=false, updatable=false)
 	protected Long idTrip;
 	
 	public String getInfo() {

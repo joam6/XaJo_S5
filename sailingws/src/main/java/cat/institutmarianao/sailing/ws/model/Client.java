@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("CLIENT")  // El nombre de la tabla
+@DiscriminatorValue(User.CLIENT)  // El nombre de la tabla
 public class Client extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;

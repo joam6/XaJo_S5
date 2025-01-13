@@ -11,6 +11,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
@@ -58,9 +60,10 @@ public abstract class User implements Serializable {
 
 	@NotNull
 	@Size(min = MIN_PASSWORD)
-	@Column(name = "password", nullable = false, length = MIN_PASSWORD)
+	@Column(name = "password", nullable = false)
 	protected String password;
 	
+	@Enumerated(EnumType.STRING)
 	@NotNull
 	@Column(name = "role", nullable = false,insertable=false, updatable=false)
 	protected Role role;

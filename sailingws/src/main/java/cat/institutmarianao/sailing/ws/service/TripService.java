@@ -1,5 +1,4 @@
 package cat.institutmarianao.sailing.ws.service;
 
-public class TripService {
-
+public interface TripService {
 }

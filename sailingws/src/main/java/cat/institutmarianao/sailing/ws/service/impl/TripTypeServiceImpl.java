@@ -21,7 +21,9 @@ import jakarta.validation.ValidationException;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class TripTypeServiceImpl {
+@Validated
+@Service
+public class TripTypeServiceImpl implements TripTypeService {
 	
 	@Autowired
 	private TripTypeRepository TripTypeRepository;
@@ -35,7 +37,9 @@ public class TripTypeServiceImpl {
 	}
 	
 	@Override
-	public TripType getById(@NotBlank long id) {
-		return userRepository.findById(id).orElseThrow(() -> new NotFoundException(messageSource.getMessage("error.NotFound.resource.by.id", new String[] { "User", username }, LocaleContextHolder.getLocale())));
+	public TripType getById(long id) {
+		return TripTypeRepository.findById(id).orElseThrow(() -> 
+		new NotFoundException(messageSource.getMessage("error.NotFound.resource.by.id", 
+				new Object[] { "TripType", id}, LocaleContextHolder.getLocale())));
 	}
 }

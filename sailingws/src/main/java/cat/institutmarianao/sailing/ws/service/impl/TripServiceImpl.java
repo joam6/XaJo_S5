@@ -1,5 +1,6 @@
 package cat.institutmarianao.sailing.ws.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.validation.annotation.Validated;
 
 import cat.institutmarianao.sailing.ws.exception.NotFoundException;
 import cat.institutmarianao.sailing.ws.model.Trip;
+import cat.institutmarianao.sailing.ws.model.Trip.Status;
+import cat.institutmarianao.sailing.ws.model.TripType.Category;
 import cat.institutmarianao.sailing.ws.repository.TripRepository;
 import cat.institutmarianao.sailing.ws.security.JwtUtils;
 import cat.institutmarianao.sailing.ws.service.TripService;
@@ -60,6 +63,12 @@ public class TripServiceImpl implements TripService{
 
 	@Override
 	public Trip action(@NotNull @Valid Trip trip) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Trip> findAll(Category category, Status status, String clientUsername, Date from, Date to) {
 		// TODO Auto-generated method stub
 		return null;
 	}

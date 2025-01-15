@@ -60,7 +60,7 @@ public class TripController {
 											@RequestParam(value = "from", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date from,
 											@RequestParam(value = "to", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date to) {
 		// TODO Retrieve all trips filtered
-		return TripService.findAll(category ,status ,clientUsername ,from ,to);
+		return TripService.findAll(category ,status ,clientUsername);
 	}
 
 	@Operation(summary = "Retrieve all trips filtered by client username", description = "Retrieve all trips filtered by client username from the database.")
@@ -96,13 +96,7 @@ public class TripController {
 			@Content() }, description = "Error saving the trip. See response body for more details")
 	@PostMapping(value = "/save")
 	public Trip save(@RequestBody @Validated(OnTripCreate.class) @NotNull Trip trip) {
-<<<<<<< HEAD
-		
-		return null;
-=======
-		// TODO Save a trip
 		return TripService.save(trip);
->>>>>>> branch 'master' of https://github.com/joam6/XaJo_S5.git
 	}
 
 	/* Swagger */

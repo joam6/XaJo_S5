@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import cat.institutmarianao.sailing.ws.model.Trip;
+import cat.institutmarianao.sailing.ws.service.TripService;
+import cat.institutmarianao.sailing.ws.service.UserService;
 import cat.institutmarianao.sailing.ws.SailingWsApplication;
 import cat.institutmarianao.sailing.ws.model.Action;
 import cat.institutmarianao.sailing.ws.model.Trip;
@@ -45,6 +48,8 @@ public class TripController {
 	private PasswordEncoder passwordEncoder;
 
 
+	private TripService TripService;
+	
 	@Operation(summary = "Retrieve all trips filtered", description = "Retrieve all trips filtered from the database.")
 	@ApiResponse(responseCode = "200", content = {
 			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Trip.class))) }, description = "Trips retrieved ok")
@@ -55,7 +60,7 @@ public class TripController {
 											@RequestParam(value = "from", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date from,
 											@RequestParam(value = "to", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date to) {
 		// TODO Retrieve all trips filtered
-		return null;
+		return TripService.findAll(category ,status ,clientUsername ,from ,to);
 	}
 
 	@Operation(summary = "Retrieve all trips filtered by client username", description = "Retrieve all trips filtered by client username from the database.")
@@ -69,7 +74,7 @@ public class TripController {
 			@RequestParam(value = "to", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date to) {
 
 		// TODO Retrieve all trips filtered by client username
-		return null;
+		return (List<Trip>) TripService.getByClientUsername(username);
 	}
 
 	/* Swagger */
@@ -80,7 +85,7 @@ public class TripController {
 	@GetMapping("/get/by/id/{id}")
 	public Trip findById(@PathVariable("id") @NotNull Long id) {
 		// TODO Get trip by id
-		return null;
+		return TripService.getById(id);
 	}
 	
 	
@@ -91,8 +96,13 @@ public class TripController {
 			@Content() }, description = "Error saving the trip. See response body for more details")
 	@PostMapping(value = "/save")
 	public Trip save(@RequestBody @Validated(OnTripCreate.class) @NotNull Trip trip) {
+<<<<<<< HEAD
 		
 		return null;
+=======
+		// TODO Save a trip
+		return TripService.save(trip);
+>>>>>>> branch 'master' of https://github.com/joam6/XaJo_S5.git
 	}
 
 	/* Swagger */
@@ -104,6 +114,7 @@ public class TripController {
 	public Action saveAction(@RequestBody @Validated(OnActionCreate.class) Action action) {
 		// TODO Save an action of a trip (in its tracking)
 		return null;
+		//return TripService.saveAction();
 	}
 
 }

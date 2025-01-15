@@ -31,7 +31,7 @@ public class TripTypeServiceImpl implements TripTypeService {
 	@Autowired
 	private MessageSource messageSource;
 	
-	
+	@Override
 	public List<TripType> findAll() {
 		return TripTypeRepository.findAll();
 	}

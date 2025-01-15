@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import cat.institutmarianao.sailing.ws.SailingWsApplication;
 import cat.institutmarianao.sailing.ws.model.Action;
 import cat.institutmarianao.sailing.ws.model.Trip;
+import cat.institutmarianao.sailing.ws.model.User;
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripCreate;
 import cat.institutmarianao.sailing.ws.model.Trip.Status;
 import cat.institutmarianao.sailing.ws.model.TripType.Category;
+import cat.institutmarianao.sailing.ws.service.TripService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -38,6 +41,9 @@ import jakarta.validation.constraints.NotNull;
 @SecurityRequirement(name = "Bearer Authentication")
 @Validated
 public class TripController {
+	
+	private PasswordEncoder passwordEncoder;
+
 
 	@Operation(summary = "Retrieve all trips filtered", description = "Retrieve all trips filtered from the database.")
 	@ApiResponse(responseCode = "200", content = {
@@ -85,7 +91,7 @@ public class TripController {
 			@Content() }, description = "Error saving the trip. See response body for more details")
 	@PostMapping(value = "/save")
 	public Trip save(@RequestBody @Validated(OnTripCreate.class) @NotNull Trip trip) {
-		// TODO Save a trip
+		
 		return null;
 	}
 
@@ -99,4 +105,5 @@ public class TripController {
 		// TODO Save an action of a trip (in its tracking)
 		return null;
 	}
+
 }

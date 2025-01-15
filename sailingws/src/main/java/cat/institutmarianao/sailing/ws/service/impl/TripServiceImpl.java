@@ -1,6 +1,5 @@
 package cat.institutmarianao.sailing.ws.service.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import cat.institutmarianao.sailing.ws.model.Trip;
 import cat.institutmarianao.sailing.ws.model.Trip.Status;
 import cat.institutmarianao.sailing.ws.model.TripType.Category;
 import cat.institutmarianao.sailing.ws.repository.TripRepository;
-import cat.institutmarianao.sailing.ws.security.JwtUtils;
 import cat.institutmarianao.sailing.ws.service.TripService;
 import jakarta.validation.Valid;
 import jakarta.validation.ValidationException;
@@ -45,10 +43,16 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public List<Trip> getByClientUsername(String username) {
-	    return TripRepository.findByClientUsername(username).orElseThrow(() ->
-	    new NotFoundException(messageSource.getMessage("error.NotFound.resource.by.id",
-	    		new String[] { "Trip", username }, LocaleContextHolder.getLocale())));
+	public List<Trip> getByClientUsername(String clientUsername) {
+	    List<Trip> trips = TripRepository.findByClientUsername(clientUsername);
+	    if (trips.isEmpty()) {
+	        throw new NotFoundException(messageSource.getMessage(
+	            "error.NotFound.resource.by.id",
+	            new String[] { "Trip", clientUsername }, 
+	            LocaleContextHolder.getLocale()
+	        ));
+	    }
+	    return trips;
 	}
 
 

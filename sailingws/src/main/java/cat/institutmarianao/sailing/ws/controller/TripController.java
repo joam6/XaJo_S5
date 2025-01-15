@@ -17,11 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cat.institutmarianao.sailing.ws.model.Trip;
 import cat.institutmarianao.sailing.ws.service.TripService;
-import cat.institutmarianao.sailing.ws.service.UserService;
 import cat.institutmarianao.sailing.ws.SailingWsApplication;
 import cat.institutmarianao.sailing.ws.model.Action;
 import cat.institutmarianao.sailing.ws.model.Trip;
-import cat.institutmarianao.sailing.ws.model.User;
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripCreate;
 import cat.institutmarianao.sailing.ws.model.Trip.Status;
@@ -45,8 +43,6 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 public class TripController {
 	
-	private PasswordEncoder passwordEncoder;
-
 
 	private TripService TripService;
 	

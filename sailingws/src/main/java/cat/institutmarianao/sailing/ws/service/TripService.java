@@ -17,7 +17,7 @@ public interface TripService {
 	
 	Trip getById(long id);
 	
-	Trip getByClientUsername(@NotBlank String username);	
+	List<Trip> getByClientUsername(@NotBlank String username);	
 	
 	Trip save(@NotNull @Valid Trip trip);
 	

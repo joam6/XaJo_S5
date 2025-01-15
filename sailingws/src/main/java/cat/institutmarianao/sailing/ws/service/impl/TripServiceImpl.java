@@ -45,7 +45,7 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public Trip getByClientUsername(String username) {
+	public List<Trip> getByClientUsername(String username) {
 	    return TripRepository.findByClientUsername(username).orElseThrow(() ->
 	    new NotFoundException(messageSource.getMessage("error.NotFound.resource.by.id",
 	    		new String[] { "Trip", username }, LocaleContextHolder.getLocale())));
@@ -68,7 +68,7 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public List<Trip> findAll(Category category, Status status, String clientUsername, Date from, Date to) {
+	public List<Trip> findAll(Category category, Status status, String clientUsername) {
 		// TODO Auto-generated method stub
 		return null;
 	}

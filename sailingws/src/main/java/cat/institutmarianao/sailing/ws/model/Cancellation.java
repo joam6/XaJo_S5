@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("Cancellation")
+@DiscriminatorValue(Action.CANCELLATION)
 public class Cancellation extends Action {
 	private static final long serialVersionUID = 1L;
 

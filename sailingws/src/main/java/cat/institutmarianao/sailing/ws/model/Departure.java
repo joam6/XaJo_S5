@@ -55,8 +55,9 @@ public class Departure implements Serializable {
 	@Column (name  = "date" , nullable = false)
 	private Date date;
 
-	private Date departure;
-	
+    @Column(name = "departure", nullable = false)
+    private Date departure;
+    
 	/* Hibernate */
 	@Formula("(SELECT COALESCE(SUM(t.places), 0) "
 			+ "FROM trips t INNER JOIN actions a ON a.trip_id = t.id " 

@@ -3,6 +3,7 @@ package cat.institutmarianao.sailing.ws.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
@@ -43,7 +44,7 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 public class TripController {
 	
-
+    @Autowired
 	private TripService TripService;
 	
 	@Operation(summary = "Retrieve all trips filtered", description = "Retrieve all trips filtered from the database.")
@@ -56,21 +57,17 @@ public class TripController {
 											@RequestParam(value = "from", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date from,
 											@RequestParam(value = "to", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date to) {
 		// TODO Retrieve all trips filtered
-		return TripService.findAll(category ,status ,clientUsername);
+		return TripService.findAll();
 	}
 
 	@Operation(summary = "Retrieve all trips filtered by client username", description = "Retrieve all trips filtered by client username from the database.")
 	@ApiResponse(responseCode = "200", content = {
 			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Trip.class))) }, description = "Trips by client username retrieved ok")
 	@GetMapping(value = "/find/all/by/client/username/{username}")
-	public @ResponseBody List<Trip> findAllByClientUsername(@PathVariable("username") @NotNull String username,
-			@RequestParam(value = "category", required = false) Category category,
-			@RequestParam(value = "status", required = false) Status status,
-			@RequestParam(value = "from", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date from,
-			@RequestParam(value = "to", required = false) @DateTimeFormat(pattern = SailingWsApplication.DATE_PATTERN) @Parameter(description = SailingWsApplication.DATE_PATTERN) Date to) {
+	public @ResponseBody List<Trip> findAllByClientUsername(@PathVariable("username") @NotNull String clientUsername) {
 
 		// TODO Retrieve all trips filtered by client username
-		return (List<Trip>) TripService.getByClientUsername(username);
+		return (List<Trip>) TripService.getByClientUsername(clientUsername);
 	}
 
 	/* Swagger */

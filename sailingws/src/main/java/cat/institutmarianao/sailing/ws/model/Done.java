@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("DONE")
+@DiscriminatorValue(Action.DONE)
 public class Done extends Action {
 	private static final long serialVersionUID = 1L;
 

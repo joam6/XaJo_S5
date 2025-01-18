@@ -1,5 +1,6 @@
 package cat.institutmarianao.sailing.ws.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +33,8 @@ public class TripServiceImpl implements TripService{
 
 	@Override
 	public List<Trip> findAll() {
-		return TripRepository.findAll();
-	}
-
-	@Override
-	public Trip getById(long id) {
-		return TripRepository.findById(id).orElseThrow(() -> 
-		new NotFoundException(messageSource.getMessage("error.NotFound.resource.by.id", 
-				new Object[] { "Trip", id}, LocaleContextHolder.getLocale())));
-	}
-
+        return TripRepository.findAll();
+    }
 	@Override
 	public List<Trip> getByClientUsername(String clientUsername) {
 	    List<Trip> trips = TripRepository.findByClientUsername(clientUsername);
@@ -70,12 +63,12 @@ public class TripServiceImpl implements TripService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
-	public List<Trip> findAll(Category category, Status status, String clientUsername) {
+	public Trip getById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 
 

@@ -65,7 +65,7 @@ public class TripType implements Serializable {
 	private double price;
 
     @Column(name = "departures", nullable = true, length = 255)
-	private String departures;	// Comma-separated values: 9:30;11:30;13:30
+	private String departures;	
  
 	@NotNull
 	@Positive

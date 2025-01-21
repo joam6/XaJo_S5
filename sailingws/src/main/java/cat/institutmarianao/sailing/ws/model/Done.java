@@ -1,6 +1,8 @@
 package cat.institutmarianao.sailing.ws.model;
 import lombok.Data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionUpdate;
 import jakarta.persistence.Column;
@@ -17,6 +19,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @DiscriminatorValue(Action.DONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Done extends Action {
 	private static final long serialVersionUID = 1L;
 

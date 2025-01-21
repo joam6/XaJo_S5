@@ -2,6 +2,8 @@ package cat.institutmarianao.sailing.ws.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripTypeCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripTypeUpdate;
 import jakarta.persistence.Column;
@@ -27,6 +29,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "trip_types") // El nombre de la tabla
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class TripType implements Serializable {
 
 	private static final long serialVersionUID = 1L;

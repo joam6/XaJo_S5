@@ -7,6 +7,8 @@ import java.util.Date;
 
 import org.hibernate.annotations.Formula;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +34,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "departures")
+@JsonInclude(JsonInclude.Include.NON_NULL)  // Para excluir campos nulos en el JSON
 public class Departure implements Serializable {
 
 	private static final long serialVersionUID = 1L;

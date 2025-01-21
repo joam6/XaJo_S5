@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.Formula;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnTripUpdate;
 import jakarta.persistence.Column;
@@ -39,6 +41,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "trips")
+@JsonInclude(JsonInclude.Include.NON_NULL)  // Para excluir propiedades nulas en la serialización JSON
 public class Trip implements Serializable {
 
 	private static final long serialVersionUID = 1L;

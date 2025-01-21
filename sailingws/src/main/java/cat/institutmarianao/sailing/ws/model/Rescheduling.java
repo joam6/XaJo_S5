@@ -2,6 +2,8 @@ package cat.institutmarianao.sailing.ws.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,7 @@ import jakarta.persistence.Entity;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @DiscriminatorValue("Rescheduling")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Rescheduling extends Action {
 	private static final long serialVersionUID = 1L;
 

@@ -2,6 +2,10 @@ package cat.institutmarianao.sailing.ws.model;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnActionUpdate;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -38,6 +42,17 @@ import lombok.experimental.SuperBuilder;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING) // Columna para distinguir los tipos de usuario
 @Table(name = "actions")
+@JsonTypeInfo(
+	    use = JsonTypeInfo.Id.NAME, 
+	    include = JsonTypeInfo.As.EXTERNAL_PROPERTY, 
+	    property = "type"  // El campo discriminador en el JSON
+	)
+	@JsonSubTypes({
+	    @JsonSubTypes.Type(value = Booking.class, name = Action.BOOKING),
+	    @JsonSubTypes.Type(value = Rescheduling.class, name = Action.RESCHEDULING),
+	    @JsonSubTypes.Type(value = Cancellation.class, name = Action.CANCELLATION),
+	    @JsonSubTypes.Type(value = Done.class, name = Action.DONE)
+	})
 public abstract class Action implements Serializable {
 
 	private static final long serialVersionUID = 1L;

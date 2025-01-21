@@ -2,7 +2,7 @@ package cat.institutmarianao.sailing.ws.model;
 
 import java.io.Serializable;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import cat.institutmarianao.sailing.ws.validation.groups.OnUserCreate;
 import cat.institutmarianao.sailing.ws.validation.groups.OnUserUpdate;
@@ -24,6 +24,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @DiscriminatorValue(User.CLIENT)  // El nombre de la tabla
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Client extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;

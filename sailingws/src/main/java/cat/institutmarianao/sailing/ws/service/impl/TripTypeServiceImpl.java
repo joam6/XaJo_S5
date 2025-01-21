@@ -43,11 +43,20 @@ public class TripTypeServiceImpl implements TripTypeService {
 				new Object[] { "TripType", id}, LocaleContextHolder.getLocale())));
 	}
 
+
+
+
 	@Override
+	public List<TripType> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*@Override
 	public List<TripType> findAllWithFilters(Category category, @PositiveOrZero Double priceFrom,
 			@PositiveOrZero Double priceTo, @PositiveOrZero Integer maxPlacesFrom, @PositiveOrZero Integer maxPlacesTo,
 			@PositiveOrZero Integer durationFrom, @PositiveOrZero Integer durationTo) {
 		// TODO Auto-generated method stub
 		return TripTypeRepository.findAllWithFilters(category, priceTo, priceTo, durationTo, durationTo, durationTo, durationTo);
-		}
+		}*/
 }
